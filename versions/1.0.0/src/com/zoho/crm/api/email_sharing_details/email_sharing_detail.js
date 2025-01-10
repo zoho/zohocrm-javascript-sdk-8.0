@@ -121,30 +121,30 @@ ZCRM.EmailSharingDetail = {
 		ResponseWrapper : class{
 			constructor(){
 
-				this.emailssharingdetails=null;
+				this.emailsSharingDetails=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the emailssharingdetails
-			 * @returns {List} An Array representing the emailssharingdetails
+			 * The method to get the emailsSharingDetails
+			 * @returns {List} An Array representing the emailsSharingDetails
 			 */
-			getEmailssharingdetails()	{
-				return this.emailssharingdetails;
+			getEmailsSharingDetails()	{
+				return this.emailsSharingDetails;
 
 			}
 
 			/**
-			 * The method to set the value to emailssharingdetails
-			 * @param {List} emailssharingdetails An Array
+			 * The method to set the value to emailsSharingDetails
+			 * @param {List} emailsSharingDetails An Array
 			 */
-			setEmailssharingdetails(emailssharingdetails)	{
-				if((emailssharingdetails != null) && (!(Object.prototype.toString.call(emailssharingdetails) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emailssharingdetails EXPECTED TYPE: Array", null, null);
+			setEmailsSharingDetails(emailsSharingDetails)	{
+				if((emailsSharingDetails != null) && (!(Object.prototype.toString.call(emailsSharingDetails) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emailsSharingDetails EXPECTED TYPE: Array", null, null);
 				}
-				this.emailssharingdetails = emailssharingdetails;
+				this.emailsSharingDetails = emailsSharingDetails;
 				this.keyModified.set("__emails_sharing_details", 1);
 
 			}

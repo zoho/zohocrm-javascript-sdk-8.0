@@ -31,10 +31,13 @@ class HeaderParamValidator {
             else if(typeDetail.hasOwnProperty(Constants.TYPE) && typeDetail[Constants.TYPE].toLowerCase() == Constants.CHOICE_NAMESPACE.toLowerCase()) {
                 await new Converter(new CommonAPIHandler()).checkChoiceValue1(Constants.CHOICE_NAMESPACE, typeDetail, value);
             }
-            return (await this.parseData(value)).toString();
+            return await this.parseData(value);
         }
-        let type = Object.prototype.toString.call(value);
-        return await DataTypeConverter.postConvert(value, type.toLowerCase());
+        className = Object.prototype.toString.call(value);
+        if(value instanceof Map || Array.isArray(value)) {
+            className = "object";
+        }
+        return await DataTypeConverter.postConvert(value, className);
     }
 
     async parseData(value) {

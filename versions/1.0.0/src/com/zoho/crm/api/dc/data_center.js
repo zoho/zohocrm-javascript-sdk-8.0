@@ -302,16 +302,34 @@ var DataCenter = {
             return new Environment("https://www.zohoapis.ca", DataCenter.CA.getIAMUrl(), DataCenter.CA.getFileUploadUrl());
         },
         SANDBOX: function () {
-            return new Environment("https://sandbox.zohoapis.ca", DataCenter.JP.getIAMUrl(), DataCenter.JP.getFileUploadUrl());
+            return new Environment("https://sandbox.zohoapis.ca", DataCenter.CA.getIAMUrl(), DataCenter.CA.getFileUploadUrl());
         },
         DEVELOPER: function () {
-            return new Environment("https://developer.zohoapis.ca", DataCenter.JP.getIAMUrl(), DataCenter.JP.getFileUploadUrl());
+            return new Environment("https://developer.zohoapis.ca", DataCenter.CA.getIAMUrl(), DataCenter.CA.getFileUploadUrl());
         },
         getIAMUrl() {
-            return "https://accounts.zoho.ca/oauth/v2/auth";
+            return "https://accounts.zohocloud.ca/oauth/v2/auth";
         },
         getFileUploadUrl() {
-            return "https://content.zohoapis.ca";
+            return "https://upload.zohocloud.ca";
+        }
+    },
+
+    SA: {
+        PRODUCTION: function () {
+            return new Environment("https://www.zohoapis.sa", DataCenter.SA.getIAMUrl(), DataCenter.CA.getFileUploadUrl());
+        },
+        SANDBOX: function () {
+            return new Environment("https://sandbox.zohoapis.sa", DataCenter.JP.getIAMUrl(), DataCenter.JP.getFileUploadUrl());
+        },
+        DEVELOPER: function () {
+            return new Environment("https://developer.zohoapis.sa", DataCenter.JP.getIAMUrl(), DataCenter.JP.getFileUploadUrl());
+        },
+        getIAMUrl() {
+            return "https://accounts.zoho.sa/oauth/v2/auth";
+        },
+        getFileUploadUrl() {
+            return "https://files.zoho.sa";
         }
     },
 
@@ -378,6 +396,15 @@ var DataCenter = {
                 return DataCenter.CA.DEVELOPER();
             }
             return DataCenter.CA.PRODUCTION();
+        }
+        else if (Constants.SA_DATACENTER.some(a => a === config)) {
+            if (config.includes(Constants.SANDBOX)) {
+                return DataCenter.SA.SANDBOX();
+            }
+            else if(config.includes(Constants.DEVELOPER)) {
+                return DataCenter.SA.DEVELOPER();
+            }
+            return DataCenter.SA.PRODUCTION();
         }
         return null;
     }

@@ -636,19 +636,31 @@ class Utility {
 
         if (apiType.toLowerCase() == Constants.MULTI_SELECT_LOOKUP) {
             fieldDetail[Constants.SKIP_MANDATORY] = true;
-            if (field.getMultiselectlookup() != null && field.getMultiselectlookup().getLinkingModule() != null) {
-                let linkingModule = field.getMultiselectlookup().getLinkingModule();
-                fieldDetail[Constants.MODULE] = linkingModule.getAPIName();
-                module = linkingModule;
+            let multiselectlookup = field.getMultiselectlookup();
+            if (multiselectlookup != null) {
+                let linkingDetails = multiselectlookup.getLinkingDetails();
+                if(linkingDetails != null) {
+                    let linkingModule = linkingDetails.getModule();
+                    fieldDetail[Constants.MODULE] = linkingModule.getAPIName();
+                    module = new ZCRM.Module.Model.MinifiedModule();
+                    module.setAPIName(linkingModule.getAPIName());
+					module.setId(BigInt(linkingModule.getId()));
+                }
             }
             fieldDetail[Constants.SUBFORM] = true;
         }
         if (apiType.toLowerCase() == Constants.MULTI_USER_LOOKUP) {
             fieldDetail[Constants.SKIP_MANDATORY] = true;
-            if (field.getMultiuserlookup() != null && field.getMultiuserlookup().getLinkingModule() != null) {
-                let linkingModule = field.getMultiuserlookup().getLinkingModule();
-                fieldDetail[Constants.MODULE] = linkingModule.getAPIName();
-                module = linkingModule;
+            let multiuserlookup = field.getMultiuserlookup();
+            if (multiuserlookup != null) {
+                let linkingDetails = multiuserlookup.getLinkingDetails();
+                if(linkingDetails != null) {
+                    let linkingModule = linkingDetails.getModule();
+                    fieldDetail[Constants.MODULE] = linkingModule.getAPIName();
+                    module = new ZCRM.Module.Model.MinifiedModule();
+                    module.setAPIName(linkingModule.getAPIName());
+					module.setId(BigInt(linkingModule.getId()));
+                }
             }
             fieldDetail[Constants.SUBFORM] = true;
         }

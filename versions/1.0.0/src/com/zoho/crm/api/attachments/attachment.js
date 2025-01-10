@@ -165,6 +165,7 @@ ZCRM.Attachment = {
 				this.createdBy=null;
 				this.parentId=null;
 				this.sharingPermission=null;
+				this.recordStatusS=null;
 				this.attachmentType=null;
 				this.id=null;
 				this.modifiedTime=null;
@@ -177,6 +178,10 @@ ZCRM.Attachment = {
 				this.seModule=null;
 				this.state=null;
 				this.linkUrl=null;
+				this.attachmentSourceS=null;
+				this.fileIdS=null;
+				this.fieldStates=null;
+				this.ziaVisions=null;
 				this.keyModified=new Map();
 			}
 
@@ -289,6 +294,28 @@ ZCRM.Attachment = {
 				}
 				this.sharingPermission = sharingPermission;
 				this.keyModified.set("$sharing_permission", 1);
+
+			}
+
+			/**
+			 * The method to get the recordStatusS
+			 * @returns {String} A String representing the recordStatusS
+			 */
+			getRecordStatusS()	{
+				return this.recordStatusS;
+
+			}
+
+			/**
+			 * The method to set the value to recordStatusS
+			 * @param {String} recordStatusS A String
+			 */
+			setRecordStatusS(recordStatusS)	{
+				if((recordStatusS != null) && (!(Object.prototype.toString.call(recordStatusS) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: recordStatusS EXPECTED TYPE: String", null, null);
+				}
+				this.recordStatusS = recordStatusS;
+				this.keyModified.set("Record_Status__s", 1);
 
 			}
 
@@ -557,6 +584,94 @@ ZCRM.Attachment = {
 			}
 
 			/**
+			 * The method to get the attachmentSourceS
+			 * @returns {String} A String representing the attachmentSourceS
+			 */
+			getAttachmentSourceS()	{
+				return this.attachmentSourceS;
+
+			}
+
+			/**
+			 * The method to set the value to attachmentSourceS
+			 * @param {String} attachmentSourceS A String
+			 */
+			setAttachmentSourceS(attachmentSourceS)	{
+				if((attachmentSourceS != null) && (!(Object.prototype.toString.call(attachmentSourceS) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: attachmentSourceS EXPECTED TYPE: String", null, null);
+				}
+				this.attachmentSourceS = attachmentSourceS;
+				this.keyModified.set("Attachment_Source__s", 1);
+
+			}
+
+			/**
+			 * The method to get the fileIdS
+			 * @returns {String} A String representing the fileIdS
+			 */
+			getFileIdS()	{
+				return this.fileIdS;
+
+			}
+
+			/**
+			 * The method to set the value to fileIdS
+			 * @param {String} fileIdS A String
+			 */
+			setFileIdS(fileIdS)	{
+				if((fileIdS != null) && (!(Object.prototype.toString.call(fileIdS) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: fileIdS EXPECTED TYPE: String", null, null);
+				}
+				this.fileIdS = fileIdS;
+				this.keyModified.set("File_Id__s", 1);
+
+			}
+
+			/**
+			 * The method to get the fieldStates
+			 * @returns {String} A String representing the fieldStates
+			 */
+			getFieldStates()	{
+				return this.fieldStates;
+
+			}
+
+			/**
+			 * The method to set the value to fieldStates
+			 * @param {String} fieldStates A String
+			 */
+			setFieldStates(fieldStates)	{
+				if((fieldStates != null) && (!(Object.prototype.toString.call(fieldStates) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: fieldStates EXPECTED TYPE: String", null, null);
+				}
+				this.fieldStates = fieldStates;
+				this.keyModified.set("$field_states", 1);
+
+			}
+
+			/**
+			 * The method to get the ziaVisions
+			 * @returns {String} A String representing the ziaVisions
+			 */
+			getZiaVisions()	{
+				return this.ziaVisions;
+
+			}
+
+			/**
+			 * The method to set the value to ziaVisions
+			 * @param {String} ziaVisions A String
+			 */
+			setZiaVisions(ziaVisions)	{
+				if((ziaVisions != null) && (!(Object.prototype.toString.call(ziaVisions) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaVisions EXPECTED TYPE: String", null, null);
+				}
+				this.ziaVisions = ziaVisions;
+				this.keyModified.set("$zia_visions", 1);
+
+			}
+
+			/**
 			 * The method to check if the user has modified the given key
 			 * @param {String} key A String
 			 * @returns {Integer} An Integer representing the modification
@@ -596,6 +711,9 @@ ZCRM.Attachment = {
 				this.page=null;
 				this.count=null;
 				this.moreRecords=null;
+				this.nextPageToken=null;
+				this.pageTokenExpiry=null;
+				this.previousPageToken=null;
 				this.keyModified=new Map();
 			}
 
@@ -686,6 +804,72 @@ ZCRM.Attachment = {
 				}
 				this.moreRecords = moreRecords;
 				this.keyModified.set("more_records", 1);
+
+			}
+
+			/**
+			 * The method to get the nextPageToken
+			 * @returns {String} A String representing the nextPageToken
+			 */
+			getNextPageToken()	{
+				return this.nextPageToken;
+
+			}
+
+			/**
+			 * The method to set the value to nextPageToken
+			 * @param {String} nextPageToken A String
+			 */
+			setNextPageToken(nextPageToken)	{
+				if((nextPageToken != null) && (!(Object.prototype.toString.call(nextPageToken) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: nextPageToken EXPECTED TYPE: String", null, null);
+				}
+				this.nextPageToken = nextPageToken;
+				this.keyModified.set("next_page_token", 1);
+
+			}
+
+			/**
+			 * The method to get the pageTokenExpiry
+			 * @returns {OffsetDateTime} An instance of OffsetDateTime
+			 */
+			getPageTokenExpiry()	{
+				return this.pageTokenExpiry;
+
+			}
+
+			/**
+			 * The method to set the value to pageTokenExpiry
+			 * @param {OffsetDateTime} pageTokenExpiry An instance of OffsetDateTime
+			 */
+			setPageTokenExpiry(pageTokenExpiry)	{
+				if((pageTokenExpiry != null) && (!(pageTokenExpiry instanceof Date))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: pageTokenExpiry EXPECTED TYPE: Date", null, null);
+				}
+				this.pageTokenExpiry = pageTokenExpiry;
+				this.keyModified.set("page_token_expiry", 1);
+
+			}
+
+			/**
+			 * The method to get the previousPageToken
+			 * @returns {String} A String representing the previousPageToken
+			 */
+			getPreviousPageToken()	{
+				return this.previousPageToken;
+
+			}
+
+			/**
+			 * The method to set the value to previousPageToken
+			 * @param {String} previousPageToken A String
+			 */
+			setPreviousPageToken(previousPageToken)	{
+				if((previousPageToken != null) && (!(Object.prototype.toString.call(previousPageToken) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: previousPageToken EXPECTED TYPE: String", null, null);
+				}
+				this.previousPageToken = previousPageToken;
+				this.keyModified.set("previous_page_token", 1);
 
 			}
 

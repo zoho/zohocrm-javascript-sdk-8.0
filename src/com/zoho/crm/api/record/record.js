@@ -4209,6 +4209,7 @@ ZCRM.Record = {
 				this.createdByS=null;
 				this.ownerS=null;
 				this.modifiedByS=null;
+				this.attachmentSourceS=null;
 				this.keyModified=new Map();
 			}
 
@@ -4519,6 +4520,28 @@ ZCRM.Record = {
 				}
 				this.modifiedByS = modifiedByS;
 				this.keyModified.set("Modified_By__s", 1);
+
+			}
+
+			/**
+			 * The method to get the attachmentSourceS
+			 * @returns {String} A String representing the attachmentSourceS
+			 */
+			getAttachmentSourceS()	{
+				return this.attachmentSourceS;
+
+			}
+
+			/**
+			 * The method to set the value to attachmentSourceS
+			 * @param {String} attachmentSourceS A String
+			 */
+			setAttachmentSourceS(attachmentSourceS)	{
+				if((attachmentSourceS != null) && (!(Object.prototype.toString.call(attachmentSourceS) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: attachmentSourceS EXPECTED TYPE: String", null, null);
+				}
+				this.attachmentSourceS = attachmentSourceS;
+				this.keyModified.set("Attachment_Source__s", 1);
 
 			}
 

@@ -11,30 +11,30 @@ ZCRM.EmailDraft = {
 		ResponseWrapper : class{
 			constructor(){
 
-				this.emaildrafts=null;
+				this.emailDrafts=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the emaildrafts
-			 * @returns {List} An Array representing the emaildrafts
+			 * The method to get the emailDrafts
+			 * @returns {List} An Array representing the emailDrafts
 			 */
-			getEmaildrafts()	{
-				return this.emaildrafts;
+			getEmailDrafts()	{
+				return this.emailDrafts;
 
 			}
 
 			/**
-			 * The method to set the value to emaildrafts
-			 * @param {List} emaildrafts An Array
+			 * The method to set the value to emailDrafts
+			 * @param {List} emailDrafts An Array
 			 */
-			setEmaildrafts(emaildrafts)	{
-				if((emaildrafts != null) && (!(Object.prototype.toString.call(emaildrafts) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emaildrafts EXPECTED TYPE: Array", null, null);
+			setEmailDrafts(emailDrafts)	{
+				if((emailDrafts != null) && (!(Object.prototype.toString.call(emailDrafts) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emailDrafts EXPECTED TYPE: Array", null, null);
 				}
-				this.emaildrafts = emaildrafts;
+				this.emailDrafts = emailDrafts;
 				this.keyModified.set("__email_drafts", 1);
 
 			}
@@ -162,30 +162,30 @@ ZCRM.EmailDraft = {
 		BodyWrapper : class{
 			constructor(){
 
-				this.emaildrafts=null;
+				this.emailDrafts=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the emaildrafts
-			 * @returns {List} An Array representing the emaildrafts
+			 * The method to get the emailDrafts
+			 * @returns {List} An Array representing the emailDrafts
 			 */
-			getEmaildrafts()	{
-				return this.emaildrafts;
+			getEmailDrafts()	{
+				return this.emailDrafts;
 
 			}
 
 			/**
-			 * The method to set the value to emaildrafts
-			 * @param {List} emaildrafts An Array
+			 * The method to set the value to emailDrafts
+			 * @param {List} emailDrafts An Array
 			 */
-			setEmaildrafts(emaildrafts)	{
-				if((emaildrafts != null) && (!(Object.prototype.toString.call(emaildrafts) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emaildrafts EXPECTED TYPE: Array", null, null);
+			setEmailDrafts(emailDrafts)	{
+				if((emailDrafts != null) && (!(Object.prototype.toString.call(emailDrafts) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emailDrafts EXPECTED TYPE: Array", null, null);
 				}
-				this.emaildrafts = emaildrafts;
+				this.emailDrafts = emailDrafts;
 				this.keyModified.set("__email_drafts", 1);
 
 			}
@@ -1042,30 +1042,30 @@ ZCRM.EmailDraft = {
 		ActionWrapper : class{
 			constructor(){
 
-				this.emaildrafts=null;
+				this.emailDrafts=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the emaildrafts
-			 * @returns {List} An Array representing the emaildrafts
+			 * The method to get the emailDrafts
+			 * @returns {List} An Array representing the emailDrafts
 			 */
-			getEmaildrafts()	{
-				return this.emaildrafts;
+			getEmailDrafts()	{
+				return this.emailDrafts;
 
 			}
 
 			/**
-			 * The method to set the value to emaildrafts
-			 * @param {List} emaildrafts An Array
+			 * The method to set the value to emailDrafts
+			 * @param {List} emailDrafts An Array
 			 */
-			setEmaildrafts(emaildrafts)	{
-				if((emaildrafts != null) && (!(Object.prototype.toString.call(emaildrafts) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emaildrafts EXPECTED TYPE: Array", null, null);
+			setEmailDrafts(emailDrafts)	{
+				if((emailDrafts != null) && (!(Object.prototype.toString.call(emailDrafts) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: emailDrafts EXPECTED TYPE: Array", null, null);
 				}
-				this.emaildrafts = emaildrafts;
+				this.emailDrafts = emailDrafts;
 				this.keyModified.set("__email_drafts", 1);
 
 			}

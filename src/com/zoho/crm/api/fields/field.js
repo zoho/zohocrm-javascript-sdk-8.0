@@ -59,7 +59,7 @@ ZCRM.Field = {
 
 			/**
 			 * The method to get the criteria
-			 * @returns {RollupCriteria} An instance of RollupCriteria
+			 * @returns {Criteria} An instance of Criteria
 			 */
 			getCriteria()	{
 				return this.criteria;
@@ -68,11 +68,11 @@ ZCRM.Field = {
 
 			/**
 			 * The method to set the value to criteria
-			 * @param {RollupCriteria} criteria An instance of RollupCriteria
+			 * @param {Criteria} criteria An instance of Criteria
 			 */
 			setCriteria(criteria)	{
-				if((criteria != null) && (!(criteria instanceof ZCRM.Field.Model.RollupCriteria))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: criteria EXPECTED TYPE: RollupCriteria", null, null);
+				if((criteria != null) && (!(criteria instanceof ZCRM.Field.Model.Criteria))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: criteria EXPECTED TYPE: Criteria", null, null);
 				}
 				this.criteria = criteria;
 				this.keyModified.set("criteria", 1);
@@ -286,6 +286,7 @@ ZCRM.Field = {
 				this.maps=null;
 				this.delete1=null;
 				this.showValue=null;
+				this.globalPicklistValue=null;
 				this.keyModified=new Map();
 			}
 
@@ -644,6 +645,28 @@ ZCRM.Field = {
 			}
 
 			/**
+			 * The method to get the globalPicklistValue
+			 * @returns {Picklist} An instance of Picklist
+			 */
+			getGlobalPicklistValue()	{
+				return this.globalPicklistValue;
+
+			}
+
+			/**
+			 * The method to set the value to globalPicklistValue
+			 * @param {Picklist} globalPicklistValue An instance of Picklist
+			 */
+			setGlobalPicklistValue(globalPicklistValue)	{
+				if((globalPicklistValue != null) && (!(globalPicklistValue instanceof ZCRM.GlobalPicklist.Model.Picklist))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: globalPicklistValue EXPECTED TYPE: Picklist", null, null);
+				}
+				this.globalPicklistValue = globalPicklistValue;
+				this.keyModified.set("_global_picklist_value", 1);
+
+			}
+
+			/**
 			 * The method to check if the user has modified the given key
 			 * @param {String} key A String
 			 * @returns {Integer} An Integer representing the modification
@@ -680,7 +703,11 @@ ZCRM.Field = {
 			constructor(){
 
 				this.returnType=null;
+				this.assumeDefault=null;
 				this.expression=null;
+				this.dynamic=null;
+				this.stopComputeConditionally=null;
+				this.stopComputeExpression=null;
 				this.keyModified=new Map();
 			}
 
@@ -709,6 +736,28 @@ ZCRM.Field = {
 			}
 
 			/**
+			 * The method to get the assumeDefault
+			 * @returns {Boolean} A Boolean representing the assumeDefault
+			 */
+			getAssumeDefault()	{
+				return this.assumeDefault;
+
+			}
+
+			/**
+			 * The method to set the value to assumeDefault
+			 * @param {Boolean} assumeDefault A Boolean
+			 */
+			setAssumeDefault(assumeDefault)	{
+				if((assumeDefault != null) && (!(Object.prototype.toString.call(assumeDefault) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: assumeDefault EXPECTED TYPE: Boolean", null, null);
+				}
+				this.assumeDefault = assumeDefault;
+				this.keyModified.set("assume_default", 1);
+
+			}
+
+			/**
 			 * The method to get the expression
 			 * @returns {String} A String representing the expression
 			 */
@@ -727,6 +776,72 @@ ZCRM.Field = {
 				}
 				this.expression = expression;
 				this.keyModified.set("expression", 1);
+
+			}
+
+			/**
+			 * The method to get the dynamic
+			 * @returns {Boolean} A Boolean representing the dynamic
+			 */
+			getDynamic()	{
+				return this.dynamic;
+
+			}
+
+			/**
+			 * The method to set the value to dynamic
+			 * @param {Boolean} dynamic A Boolean
+			 */
+			setDynamic(dynamic)	{
+				if((dynamic != null) && (!(Object.prototype.toString.call(dynamic) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: dynamic EXPECTED TYPE: Boolean", null, null);
+				}
+				this.dynamic = dynamic;
+				this.keyModified.set("dynamic", 1);
+
+			}
+
+			/**
+			 * The method to get the stopComputeConditionally
+			 * @returns {Boolean} A Boolean representing the stopComputeConditionally
+			 */
+			getStopComputeConditionally()	{
+				return this.stopComputeConditionally;
+
+			}
+
+			/**
+			 * The method to set the value to stopComputeConditionally
+			 * @param {Boolean} stopComputeConditionally A Boolean
+			 */
+			setStopComputeConditionally(stopComputeConditionally)	{
+				if((stopComputeConditionally != null) && (!(Object.prototype.toString.call(stopComputeConditionally) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: stopComputeConditionally EXPECTED TYPE: Boolean", null, null);
+				}
+				this.stopComputeConditionally = stopComputeConditionally;
+				this.keyModified.set("stop_compute_conditionally", 1);
+
+			}
+
+			/**
+			 * The method to get the stopComputeExpression
+			 * @returns {String} A String representing the stopComputeExpression
+			 */
+			getStopComputeExpression()	{
+				return this.stopComputeExpression;
+
+			}
+
+			/**
+			 * The method to set the value to stopComputeExpression
+			 * @param {String} stopComputeExpression A String
+			 */
+			setStopComputeExpression(stopComputeExpression)	{
+				if((stopComputeExpression != null) && (!(Object.prototype.toString.call(stopComputeExpression) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: stopComputeExpression EXPECTED TYPE: String", null, null);
+				}
+				this.stopComputeExpression = stopComputeExpression;
+				this.keyModified.set("stop_compute_expression", 1);
 
 			}
 
@@ -1891,6 +2006,116 @@ ZCRM.Field = {
 			}
 		},
 
+		LookupRelatedList : class{
+			constructor(){
+
+				this.displayLabel=null;
+				this.apiName=null;
+				this.id=null;
+				this.keyModified=new Map();
+			}
+
+
+
+			/**
+			 * The method to get the displayLabel
+			 * @returns {String} A String representing the displayLabel
+			 */
+			getDisplayLabel()	{
+				return this.displayLabel;
+
+			}
+
+			/**
+			 * The method to set the value to displayLabel
+			 * @param {String} displayLabel A String
+			 */
+			setDisplayLabel(displayLabel)	{
+				if((displayLabel != null) && (!(Object.prototype.toString.call(displayLabel) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: displayLabel EXPECTED TYPE: String", null, null);
+				}
+				this.displayLabel = displayLabel;
+				this.keyModified.set("display_label", 1);
+
+			}
+
+			/**
+			 * The method to get the apiName
+			 * @returns {String} A String representing the apiName
+			 */
+			getAPIName()	{
+				return this.apiName;
+
+			}
+
+			/**
+			 * The method to set the value to apiName
+			 * @param {String} apiName A String
+			 */
+			setAPIName(apiName)	{
+				if((apiName != null) && (!(Object.prototype.toString.call(apiName) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: apiName EXPECTED TYPE: String", null, null);
+				}
+				this.apiName = apiName;
+				this.keyModified.set("api_name", 1);
+
+			}
+
+			/**
+			 * The method to get the id
+			 * @returns {Long} A BigInt representing the id
+			 */
+			getId()	{
+				return this.id;
+
+			}
+
+			/**
+			 * The method to set the value to id
+			 * @param {Long} id A BigInt
+			 */
+			setId(id)	{
+				if((id != null) && (!(Object.prototype.toString.call(id) == "[object BigInt]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: id EXPECTED TYPE: BigInt", null, null);
+				}
+				this.id = id;
+				this.keyModified.set("id", 1);
+
+			}
+
+			/**
+			 * The method to check if the user has modified the given key
+			 * @param {String} key A String
+			 * @returns {Integer} An Integer representing the modification
+			 */
+			isKeyModified(key)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if(this.keyModified.has(key)){
+					return this.keyModified.get(key);
+				}
+				return null;
+
+			}
+
+			/**
+			 * The method to mark the given key as modified
+			 * @param {String} key A String
+			 * @param {Integer} modification An Integer
+			 */
+			setKeyModified(key, modification)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if((modification != null) && (!(Object.prototype.toString.call(modification) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: modification EXPECTED TYPE: Integer", null, null);
+				}
+				this.keyModified.set(key, modification);
+
+			}
+		},
+
 		OperationType : class{
 			constructor(){
 
@@ -2165,7 +2390,7 @@ ZCRM.Field = {
 				this.globalPicklist=null;
 				this.hipaaComplianceEnabled=null;
 				this.hipaaCompliance=null;
-				this.updateexistingrecords=null;
+				this.updateExistingRecords=null;
 				this.numberSeparator=null;
 				this.textarea=null;
 				this.staticField=null;
@@ -3738,7 +3963,7 @@ ZCRM.Field = {
 
 			/**
 			 * The method to get the globalPicklist
-			 * @returns {Object} An Object representing the globalPicklist
+			 * @returns {Picklist} An instance of Picklist
 			 */
 			getGlobalPicklist()	{
 				return this.globalPicklist;
@@ -3747,9 +3972,12 @@ ZCRM.Field = {
 
 			/**
 			 * The method to set the value to globalPicklist
-			 * @param {Object} globalPicklist An Object
+			 * @param {Picklist} globalPicklist An instance of Picklist
 			 */
 			setGlobalPicklist(globalPicklist)	{
+				if((globalPicklist != null) && (!(globalPicklist instanceof ZCRM.GlobalPicklist.Model.Picklist))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: globalPicklist EXPECTED TYPE: Picklist", null, null);
+				}
 				this.globalPicklist = globalPicklist;
 				this.keyModified.set("global_picklist", 1);
 
@@ -3800,23 +4028,23 @@ ZCRM.Field = {
 			}
 
 			/**
-			 * The method to get the updateexistingrecords
-			 * @returns {Boolean} A Boolean representing the updateexistingrecords
+			 * The method to get the updateExistingRecords
+			 * @returns {Boolean} A Boolean representing the updateExistingRecords
 			 */
-			getUpdateexistingrecords()	{
-				return this.updateexistingrecords;
+			getUpdateExistingRecords()	{
+				return this.updateExistingRecords;
 
 			}
 
 			/**
-			 * The method to set the value to updateexistingrecords
-			 * @param {Boolean} updateexistingrecords A Boolean
+			 * The method to set the value to updateExistingRecords
+			 * @param {Boolean} updateExistingRecords A Boolean
 			 */
-			setUpdateexistingrecords(updateexistingrecords)	{
-				if((updateexistingrecords != null) && (!(Object.prototype.toString.call(updateexistingrecords) == "[object Boolean]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: updateexistingrecords EXPECTED TYPE: Boolean", null, null);
+			setUpdateExistingRecords(updateExistingRecords)	{
+				if((updateExistingRecords != null) && (!(Object.prototype.toString.call(updateExistingRecords) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: updateExistingRecords EXPECTED TYPE: Boolean", null, null);
 				}
-				this.updateexistingrecords = updateexistingrecords;
+				this.updateExistingRecords = updateExistingRecords;
 				this.keyModified.set("_update_existing_records", 1);
 
 			}
@@ -3924,6 +4152,7 @@ ZCRM.Field = {
 			constructor(){
 
 				this.casesensitive=null;
+				this.disable=null;
 				this.keyModified=new Map();
 			}
 
@@ -3948,6 +4177,25 @@ ZCRM.Field = {
 				}
 				this.casesensitive = casesensitive;
 				this.keyModified.set("casesensitive", 1);
+
+			}
+
+			/**
+			 * The method to get the disable
+			 * @returns {Object} An Object representing the disable
+			 */
+			getDisable()	{
+				return this.disable;
+
+			}
+
+			/**
+			 * The method to set the value to disable
+			 * @param {Object} disable An Object
+			 */
+			setDisable(disable)	{
+				this.disable = disable;
+				this.keyModified.set("_disable", 1);
 
 			}
 
@@ -4122,6 +4370,226 @@ ZCRM.Field = {
 				}
 				this.field = field;
 				this.keyModified.set("field", 1);
+
+			}
+
+			/**
+			 * The method to check if the user has modified the given key
+			 * @param {String} key A String
+			 * @returns {Integer} An Integer representing the modification
+			 */
+			isKeyModified(key)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if(this.keyModified.has(key)){
+					return this.keyModified.get(key);
+				}
+				return null;
+
+			}
+
+			/**
+			 * The method to mark the given key as modified
+			 * @param {String} key A String
+			 * @param {Integer} modification An Integer
+			 */
+			setKeyModified(key, modification)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if((modification != null) && (!(Object.prototype.toString.call(modification) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: modification EXPECTED TYPE: Integer", null, null);
+				}
+				this.keyModified.set(key, modification);
+
+			}
+		},
+
+		ConnectedDetails : class{
+			constructor(){
+
+				this.module=null;
+				this.field=null;
+				this.layouts=null;
+				this.keyModified=new Map();
+			}
+
+
+
+			/**
+			 * The method to get the module
+			 * @returns {LinkingModule} An instance of LinkingModule
+			 */
+			getModule()	{
+				return this.module;
+
+			}
+
+			/**
+			 * The method to set the value to module
+			 * @param {LinkingModule} module An instance of LinkingModule
+			 */
+			setModule(module)	{
+				if((module != null) && (!(module instanceof ZCRM.Field.Model.LinkingModule))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: module EXPECTED TYPE: LinkingModule", null, null);
+				}
+				this.module = module;
+				this.keyModified.set("module", 1);
+
+			}
+
+			/**
+			 * The method to get the field
+			 * @returns {LookupField} An instance of LookupField
+			 */
+			getField()	{
+				return this.field;
+
+			}
+
+			/**
+			 * The method to set the value to field
+			 * @param {LookupField} field An instance of LookupField
+			 */
+			setField(field)	{
+				if((field != null) && (!(field instanceof ZCRM.Field.Model.LookupField))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: field EXPECTED TYPE: LookupField", null, null);
+				}
+				this.field = field;
+				this.keyModified.set("field", 1);
+
+			}
+
+			/**
+			 * The method to get the layouts
+			 * @returns {List} An Array representing the layouts
+			 */
+			getLayouts()	{
+				return this.layouts;
+
+			}
+
+			/**
+			 * The method to set the value to layouts
+			 * @param {List} layouts An Array
+			 */
+			setLayouts(layouts)	{
+				if((layouts != null) && (!(Object.prototype.toString.call(layouts) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: layouts EXPECTED TYPE: Array", null, null);
+				}
+				this.layouts = layouts;
+				this.keyModified.set("layouts", 1);
+
+			}
+
+			/**
+			 * The method to check if the user has modified the given key
+			 * @param {String} key A String
+			 * @returns {Integer} An Integer representing the modification
+			 */
+			isKeyModified(key)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if(this.keyModified.has(key)){
+					return this.keyModified.get(key);
+				}
+				return null;
+
+			}
+
+			/**
+			 * The method to mark the given key as modified
+			 * @param {String} key A String
+			 * @param {Integer} modification An Integer
+			 */
+			setKeyModified(key, modification)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if((modification != null) && (!(Object.prototype.toString.call(modification) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: modification EXPECTED TYPE: Integer", null, null);
+				}
+				this.keyModified.set(key, modification);
+
+			}
+		},
+
+		LookupField : class{
+			constructor(){
+
+				this.fieldLabel=null;
+				this.apiName=null;
+				this.id=null;
+				this.keyModified=new Map();
+			}
+
+
+
+			/**
+			 * The method to get the fieldLabel
+			 * @returns {String} A String representing the fieldLabel
+			 */
+			getFieldLabel()	{
+				return this.fieldLabel;
+
+			}
+
+			/**
+			 * The method to set the value to fieldLabel
+			 * @param {String} fieldLabel A String
+			 */
+			setFieldLabel(fieldLabel)	{
+				if((fieldLabel != null) && (!(Object.prototype.toString.call(fieldLabel) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: fieldLabel EXPECTED TYPE: String", null, null);
+				}
+				this.fieldLabel = fieldLabel;
+				this.keyModified.set("field_label", 1);
+
+			}
+
+			/**
+			 * The method to get the apiName
+			 * @returns {String} A String representing the apiName
+			 */
+			getAPIName()	{
+				return this.apiName;
+
+			}
+
+			/**
+			 * The method to set the value to apiName
+			 * @param {String} apiName A String
+			 */
+			setAPIName(apiName)	{
+				if((apiName != null) && (!(Object.prototype.toString.call(apiName) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: apiName EXPECTED TYPE: String", null, null);
+				}
+				this.apiName = apiName;
+				this.keyModified.set("api_name", 1);
+
+			}
+
+			/**
+			 * The method to get the id
+			 * @returns {Long} A BigInt representing the id
+			 */
+			getId()	{
+				return this.id;
+
+			}
+
+			/**
+			 * The method to set the value to id
+			 * @param {Long} id A BigInt
+			 */
+			setId(id)	{
+				if((id != null) && (!(Object.prototype.toString.call(id) == "[object BigInt]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: id EXPECTED TYPE: BigInt", null, null);
+				}
+				this.id = id;
+				this.keyModified.set("id", 1);
 
 			}
 
@@ -4593,77 +5061,80 @@ ZCRM.Field = {
 			}
 		},
 
-		RollupCriteria : class{
+		LinkingDetails : class{
 			constructor(){
 
-				this.comparator=null;
-				this.field=null;
-				this.value=null;
+				this.module=null;
+				this.lookupField=null;
+				this.connectedLookupField=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the comparator
-			 * @returns {String} A String representing the comparator
+			 * The method to get the module
+			 * @returns {LinkingModule} An instance of LinkingModule
 			 */
-			getComparator()	{
-				return this.comparator;
+			getModule()	{
+				return this.module;
 
 			}
 
 			/**
-			 * The method to set the value to comparator
-			 * @param {String} comparator A String
+			 * The method to set the value to module
+			 * @param {LinkingModule} module An instance of LinkingModule
 			 */
-			setComparator(comparator)	{
-				if((comparator != null) && (!(Object.prototype.toString.call(comparator) == "[object String]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: comparator EXPECTED TYPE: String", null, null);
+			setModule(module)	{
+				if((module != null) && (!(module instanceof ZCRM.Field.Model.LinkingModule))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: module EXPECTED TYPE: LinkingModule", null, null);
 				}
-				this.comparator = comparator;
-				this.keyModified.set("comparator", 1);
+				this.module = module;
+				this.keyModified.set("module", 1);
 
 			}
 
 			/**
-			 * The method to get the field
-			 * @returns {MinifiedField} An instance of MinifiedField
+			 * The method to get the lookupField
+			 * @returns {LookupField} An instance of LookupField
 			 */
-			getField()	{
-				return this.field;
+			getLookupField()	{
+				return this.lookupField;
 
 			}
 
 			/**
-			 * The method to set the value to field
-			 * @param {MinifiedField} field An instance of MinifiedField
+			 * The method to set the value to lookupField
+			 * @param {LookupField} lookupField An instance of LookupField
 			 */
-			setField(field)	{
-				if((field != null) && (!(field instanceof ZCRM.Field.Model.MinifiedField))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: field EXPECTED TYPE: MinifiedField", null, null);
+			setLookupField(lookupField)	{
+				if((lookupField != null) && (!(lookupField instanceof ZCRM.Field.Model.LookupField))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: lookupField EXPECTED TYPE: LookupField", null, null);
 				}
-				this.field = field;
-				this.keyModified.set("field", 1);
+				this.lookupField = lookupField;
+				this.keyModified.set("lookup_field", 1);
 
 			}
 
 			/**
-			 * The method to get the value
-			 * @returns {Object} An Object representing the value
+			 * The method to get the connectedLookupField
+			 * @returns {LookupField} An instance of LookupField
 			 */
-			getValue()	{
-				return this.value;
+			getConnectedLookupField()	{
+				return this.connectedLookupField;
 
 			}
 
 			/**
-			 * The method to set the value to value
-			 * @param {Object} value An Object
+			 * The method to set the value to connectedLookupField
+			 * @param {LookupField} connectedLookupField An instance of LookupField
 			 */
-			setValue(value)	{
-				this.value = value;
-				this.keyModified.set("value", 1);
+			setConnectedLookupField(connectedLookupField)	{
+				if((connectedLookupField != null) && (!(connectedLookupField instanceof ZCRM.Field.Model.LookupField))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: connectedLookupField EXPECTED TYPE: LookupField", null, null);
+				}
+				this.connectedLookupField = connectedLookupField;
+				this.keyModified.set("connected_lookup_field", 1);
 
 			}
 
@@ -4751,6 +5222,93 @@ ZCRM.Field = {
 				}
 				this.recordOperationsSupported = recordOperationsSupported;
 				this.keyModified.set("record_operations_supported", 1);
+
+			}
+
+			/**
+			 * The method to check if the user has modified the given key
+			 * @param {String} key A String
+			 * @returns {Integer} An Integer representing the modification
+			 */
+			isKeyModified(key)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if(this.keyModified.has(key)){
+					return this.keyModified.get(key);
+				}
+				return null;
+
+			}
+
+			/**
+			 * The method to mark the given key as modified
+			 * @param {String} key A String
+			 * @param {Integer} modification An Integer
+			 */
+			setKeyModified(key, modification)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if((modification != null) && (!(Object.prototype.toString.call(modification) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: modification EXPECTED TYPE: Integer", null, null);
+				}
+				this.keyModified.set(key, modification);
+
+			}
+		},
+
+		LookupLayout : class{
+			constructor(){
+
+				this.apiName=null;
+				this.id=null;
+				this.keyModified=new Map();
+			}
+
+
+
+			/**
+			 * The method to get the apiName
+			 * @returns {String} A String representing the apiName
+			 */
+			getAPIName()	{
+				return this.apiName;
+
+			}
+
+			/**
+			 * The method to set the value to apiName
+			 * @param {String} apiName A String
+			 */
+			setAPIName(apiName)	{
+				if((apiName != null) && (!(Object.prototype.toString.call(apiName) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: apiName EXPECTED TYPE: String", null, null);
+				}
+				this.apiName = apiName;
+				this.keyModified.set("api_name", 1);
+
+			}
+
+			/**
+			 * The method to get the id
+			 * @returns {Long} A BigInt representing the id
+			 */
+			getId()	{
+				return this.id;
+
+			}
+
+			/**
+			 * The method to set the value to id
+			 * @param {Long} id A BigInt
+			 */
+			setId(id)	{
+				if((id != null) && (!(Object.prototype.toString.call(id) == "[object BigInt]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: id EXPECTED TYPE: BigInt", null, null);
+				}
+				this.id = id;
+				this.keyModified.set("id", 1);
 
 			}
 
@@ -5728,108 +6286,59 @@ ZCRM.Field = {
 			}
 		},
 
-		Multiselectlookup : class{
+		LinkingModule : class{
 			constructor(){
 
-				this.displayLabel=null;
-				this.linkingModule=null;
-				this.connectedModule=null;
-				this.lookupApiname=null;
+				this.pluralLabel=null;
+				this.visibility=null;
 				this.apiName=null;
-				this.connectedfieldApiname=null;
-				this.connectedlookupApiname=null;
 				this.id=null;
-				this.recordAccess=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the displayLabel
-			 * @returns {String} A String representing the displayLabel
+			 * The method to get the pluralLabel
+			 * @returns {String} A String representing the pluralLabel
 			 */
-			getDisplayLabel()	{
-				return this.displayLabel;
+			getPluralLabel()	{
+				return this.pluralLabel;
 
 			}
 
 			/**
-			 * The method to set the value to displayLabel
-			 * @param {String} displayLabel A String
+			 * The method to set the value to pluralLabel
+			 * @param {String} pluralLabel A String
 			 */
-			setDisplayLabel(displayLabel)	{
-				if((displayLabel != null) && (!(Object.prototype.toString.call(displayLabel) == "[object String]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: displayLabel EXPECTED TYPE: String", null, null);
+			setPluralLabel(pluralLabel)	{
+				if((pluralLabel != null) && (!(Object.prototype.toString.call(pluralLabel) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: pluralLabel EXPECTED TYPE: String", null, null);
 				}
-				this.displayLabel = displayLabel;
-				this.keyModified.set("display_label", 1);
+				this.pluralLabel = pluralLabel;
+				this.keyModified.set("plural_label", 1);
 
 			}
 
 			/**
-			 * The method to get the linkingModule
-			 * @returns {MinifiedModule} An instance of MinifiedModule
+			 * The method to get the visibility
+			 * @returns {Integer} An Integer representing the visibility
 			 */
-			getLinkingModule()	{
-				return this.linkingModule;
+			getVisibility()	{
+				return this.visibility;
 
 			}
 
 			/**
-			 * The method to set the value to linkingModule
-			 * @param {MinifiedModule} linkingModule An instance of MinifiedModule
+			 * The method to set the value to visibility
+			 * @param {Integer} visibility An Integer
 			 */
-			setLinkingModule(linkingModule)	{
-				if((linkingModule != null) && (!(linkingModule instanceof ZCRM.Module.Model.MinifiedModule))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: linkingModule EXPECTED TYPE: MinifiedModule", null, null);
+			setVisibility(visibility)	{
+				if((visibility != null) && (!(Object.prototype.toString.call(visibility) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: visibility EXPECTED TYPE: Integer", null, null);
 				}
-				this.linkingModule = linkingModule;
-				this.keyModified.set("linking_module", 1);
-
-			}
-
-			/**
-			 * The method to get the connectedModule
-			 * @returns {MinifiedModule} An instance of MinifiedModule
-			 */
-			getConnectedModule()	{
-				return this.connectedModule;
-
-			}
-
-			/**
-			 * The method to set the value to connectedModule
-			 * @param {MinifiedModule} connectedModule An instance of MinifiedModule
-			 */
-			setConnectedModule(connectedModule)	{
-				if((connectedModule != null) && (!(connectedModule instanceof ZCRM.Module.Model.MinifiedModule))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: connectedModule EXPECTED TYPE: MinifiedModule", null, null);
-				}
-				this.connectedModule = connectedModule;
-				this.keyModified.set("connected_module", 1);
-
-			}
-
-			/**
-			 * The method to get the lookupApiname
-			 * @returns {String} A String representing the lookupApiname
-			 */
-			getLookupApiname()	{
-				return this.lookupApiname;
-
-			}
-
-			/**
-			 * The method to set the value to lookupApiname
-			 * @param {String} lookupApiname A String
-			 */
-			setLookupApiname(lookupApiname)	{
-				if((lookupApiname != null) && (!(Object.prototype.toString.call(lookupApiname) == "[object String]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: lookupApiname EXPECTED TYPE: String", null, null);
-				}
-				this.lookupApiname = lookupApiname;
-				this.keyModified.set("lookup_apiname", 1);
+				this.visibility = visibility;
+				this.keyModified.set("visibility", 1);
 
 			}
 
@@ -5856,50 +6365,6 @@ ZCRM.Field = {
 			}
 
 			/**
-			 * The method to get the connectedfieldApiname
-			 * @returns {String} A String representing the connectedfieldApiname
-			 */
-			getConnectedfieldApiname()	{
-				return this.connectedfieldApiname;
-
-			}
-
-			/**
-			 * The method to set the value to connectedfieldApiname
-			 * @param {String} connectedfieldApiname A String
-			 */
-			setConnectedfieldApiname(connectedfieldApiname)	{
-				if((connectedfieldApiname != null) && (!(Object.prototype.toString.call(connectedfieldApiname) == "[object String]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: connectedfieldApiname EXPECTED TYPE: String", null, null);
-				}
-				this.connectedfieldApiname = connectedfieldApiname;
-				this.keyModified.set("connectedfield_apiname", 1);
-
-			}
-
-			/**
-			 * The method to get the connectedlookupApiname
-			 * @returns {String} A String representing the connectedlookupApiname
-			 */
-			getConnectedlookupApiname()	{
-				return this.connectedlookupApiname;
-
-			}
-
-			/**
-			 * The method to set the value to connectedlookupApiname
-			 * @param {String} connectedlookupApiname A String
-			 */
-			setConnectedlookupApiname(connectedlookupApiname)	{
-				if((connectedlookupApiname != null) && (!(Object.prototype.toString.call(connectedlookupApiname) == "[object String]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: connectedlookupApiname EXPECTED TYPE: String", null, null);
-				}
-				this.connectedlookupApiname = connectedlookupApiname;
-				this.keyModified.set("connectedlookup_apiname", 1);
-
-			}
-
-			/**
 			 * The method to get the id
 			 * @returns {Long} A BigInt representing the id
 			 */
@@ -5918,6 +6383,117 @@ ZCRM.Field = {
 				}
 				this.id = id;
 				this.keyModified.set("id", 1);
+
+			}
+
+			/**
+			 * The method to check if the user has modified the given key
+			 * @param {String} key A String
+			 * @returns {Integer} An Integer representing the modification
+			 */
+			isKeyModified(key)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if(this.keyModified.has(key)){
+					return this.keyModified.get(key);
+				}
+				return null;
+
+			}
+
+			/**
+			 * The method to mark the given key as modified
+			 * @param {String} key A String
+			 * @param {Integer} modification An Integer
+			 */
+			setKeyModified(key, modification)	{
+				if((key != null) && (!(Object.prototype.toString.call(key) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: key EXPECTED TYPE: String", null, null);
+				}
+				if((modification != null) && (!(Object.prototype.toString.call(modification) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: modification EXPECTED TYPE: Integer", null, null);
+				}
+				this.keyModified.set(key, modification);
+
+			}
+		},
+
+		Multiselectlookup : class{
+			constructor(){
+
+				this.linkingDetails=null;
+				this.connectedDetails=null;
+				this.relatedList=null;
+				this.recordAccess=null;
+				this.keyModified=new Map();
+			}
+
+
+
+			/**
+			 * The method to get the linkingDetails
+			 * @returns {LinkingDetails} An instance of LinkingDetails
+			 */
+			getLinkingDetails()	{
+				return this.linkingDetails;
+
+			}
+
+			/**
+			 * The method to set the value to linkingDetails
+			 * @param {LinkingDetails} linkingDetails An instance of LinkingDetails
+			 */
+			setLinkingDetails(linkingDetails)	{
+				if((linkingDetails != null) && (!(linkingDetails instanceof ZCRM.Field.Model.LinkingDetails))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: linkingDetails EXPECTED TYPE: LinkingDetails", null, null);
+				}
+				this.linkingDetails = linkingDetails;
+				this.keyModified.set("linking_details", 1);
+
+			}
+
+			/**
+			 * The method to get the connectedDetails
+			 * @returns {ConnectedDetails} An instance of ConnectedDetails
+			 */
+			getConnectedDetails()	{
+				return this.connectedDetails;
+
+			}
+
+			/**
+			 * The method to set the value to connectedDetails
+			 * @param {ConnectedDetails} connectedDetails An instance of ConnectedDetails
+			 */
+			setConnectedDetails(connectedDetails)	{
+				if((connectedDetails != null) && (!(connectedDetails instanceof ZCRM.Field.Model.ConnectedDetails))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: connectedDetails EXPECTED TYPE: ConnectedDetails", null, null);
+				}
+				this.connectedDetails = connectedDetails;
+				this.keyModified.set("connected_details", 1);
+
+			}
+
+			/**
+			 * The method to get the relatedList
+			 * @returns {LookupRelatedList} An instance of LookupRelatedList
+			 */
+			getRelatedList()	{
+				return this.relatedList;
+
+			}
+
+			/**
+			 * The method to set the value to relatedList
+			 * @param {LookupRelatedList} relatedList An instance of LookupRelatedList
+			 */
+			setRelatedList(relatedList)	{
+				if((relatedList != null) && (!(relatedList instanceof ZCRM.Field.Model.LookupRelatedList))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: relatedList EXPECTED TYPE: LookupRelatedList", null, null);
+				}
+				this.relatedList = relatedList;
+				this.keyModified.set("related_list", 1);
 
 			}
 
@@ -6075,7 +6651,7 @@ ZCRM.Field = {
 
 			/**
 			 * The method to get the relatedField
-			 * @returns {MinifiedModule} An instance of MinifiedModule
+			 * @returns {LookupField} An instance of LookupField
 			 */
 			getRelatedField()	{
 				return this.relatedField;
@@ -6084,11 +6660,11 @@ ZCRM.Field = {
 
 			/**
 			 * The method to set the value to relatedField
-			 * @param {MinifiedModule} relatedField An instance of MinifiedModule
+			 * @param {LookupField} relatedField An instance of LookupField
 			 */
 			setRelatedField(relatedField)	{
-				if((relatedField != null) && (!(relatedField instanceof ZCRM.Module.Model.MinifiedModule))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: relatedField EXPECTED TYPE: MinifiedModule", null, null);
+				if((relatedField != null) && (!(relatedField instanceof ZCRM.Field.Model.LookupField))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: relatedField EXPECTED TYPE: LookupField", null, null);
 				}
 				this.relatedField = relatedField;
 				this.keyModified.set("related_field", 1);
@@ -6097,7 +6673,7 @@ ZCRM.Field = {
 
 			/**
 			 * The method to get the lookupField
-			 * @returns {MinifiedModule} An instance of MinifiedModule
+			 * @returns {LookupField} An instance of LookupField
 			 */
 			getLookupField()	{
 				return this.lookupField;
@@ -6106,11 +6682,11 @@ ZCRM.Field = {
 
 			/**
 			 * The method to set the value to lookupField
-			 * @param {MinifiedModule} lookupField An instance of MinifiedModule
+			 * @param {LookupField} lookupField An instance of LookupField
 			 */
 			setLookupField(lookupField)	{
-				if((lookupField != null) && (!(lookupField instanceof ZCRM.Module.Model.MinifiedModule))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: lookupField EXPECTED TYPE: MinifiedModule", null, null);
+				if((lookupField != null) && (!(lookupField instanceof ZCRM.Field.Model.LookupField))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: lookupField EXPECTED TYPE: LookupField", null, null);
 				}
 				this.lookupField = lookupField;
 				this.keyModified.set("lookup_field", 1);
@@ -6713,7 +7289,7 @@ ZCRM.Field = {
 
 			/**
 			 * The method to get the basedOnModule
-			 * @returns {MinifiedField} An instance of MinifiedField
+			 * @returns {MinifiedModule} An instance of MinifiedModule
 			 */
 			getBasedOnModule()	{
 				return this.basedOnModule;
@@ -6722,11 +7298,11 @@ ZCRM.Field = {
 
 			/**
 			 * The method to set the value to basedOnModule
-			 * @param {MinifiedField} basedOnModule An instance of MinifiedField
+			 * @param {MinifiedModule} basedOnModule An instance of MinifiedModule
 			 */
 			setBasedOnModule(basedOnModule)	{
-				if((basedOnModule != null) && (!(basedOnModule instanceof ZCRM.Field.Model.MinifiedField))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: basedOnModule EXPECTED TYPE: MinifiedField", null, null);
+				if((basedOnModule != null) && (!(basedOnModule instanceof ZCRM.Module.Model.MinifiedModule))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: basedOnModule EXPECTED TYPE: MinifiedModule", null, null);
 				}
 				this.basedOnModule = basedOnModule;
 				this.keyModified.set("based_on_module", 1);
@@ -6735,7 +7311,7 @@ ZCRM.Field = {
 
 			/**
 			 * The method to get the relatedList
-			 * @returns {MinifiedField} An instance of MinifiedField
+			 * @returns {RelatedList} An instance of RelatedList
 			 */
 			getRelatedList()	{
 				return this.relatedList;
@@ -6744,11 +7320,11 @@ ZCRM.Field = {
 
 			/**
 			 * The method to set the value to relatedList
-			 * @param {MinifiedField} relatedList An instance of MinifiedField
+			 * @param {RelatedList} relatedList An instance of RelatedList
 			 */
 			setRelatedList(relatedList)	{
-				if((relatedList != null) && (!(relatedList instanceof ZCRM.Field.Model.MinifiedField))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: relatedList EXPECTED TYPE: MinifiedField", null, null);
+				if((relatedList != null) && (!(relatedList instanceof ZCRM.RelatedList.Model.RelatedList))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: relatedList EXPECTED TYPE: RelatedList", null, null);
 				}
 				this.relatedList = relatedList;
 				this.keyModified.set("related_list", 1);

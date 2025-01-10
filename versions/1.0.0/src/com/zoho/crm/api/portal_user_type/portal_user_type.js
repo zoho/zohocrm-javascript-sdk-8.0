@@ -1539,7 +1539,7 @@ ZCRM.PortalUserType = {
 				this.displayLabel=null;
 				this.name=null;
 				this.id=null;
-				this.defaultview=null;
+				this.defaultView=null;
 				this.keyModified=new Map();
 			}
 
@@ -1612,23 +1612,23 @@ ZCRM.PortalUserType = {
 			}
 
 			/**
-			 * The method to get the defaultview
+			 * The method to get the defaultView
 			 * @returns {Views} An instance of Views
 			 */
-			getDefaultview()	{
-				return this.defaultview;
+			getDefaultView()	{
+				return this.defaultView;
 
 			}
 
 			/**
-			 * The method to set the value to defaultview
-			 * @param {Views} defaultview An instance of Views
+			 * The method to set the value to defaultView
+			 * @param {Views} defaultView An instance of Views
 			 */
-			setDefaultview(defaultview)	{
-				if((defaultview != null) && (!(defaultview instanceof ZCRM.PortalUserType.Model.Views))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultview EXPECTED TYPE: Views", null, null);
+			setDefaultView(defaultView)	{
+				if((defaultView != null) && (!(defaultView instanceof ZCRM.PortalUserType.Model.Views))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultView EXPECTED TYPE: Views", null, null);
 				}
-				this.defaultview = defaultview;
+				this.defaultView = defaultView;
 				this.keyModified.set("_default_view", 1);
 
 			}

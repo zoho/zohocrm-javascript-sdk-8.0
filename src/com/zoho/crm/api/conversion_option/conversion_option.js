@@ -323,30 +323,30 @@ ZCRM.ConversionOption = {
 		ResponseWrapper : class{
 			constructor(){
 
-				this.conversionoptions=null;
+				this.conversionOptions=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the conversionoptions
+			 * The method to get the conversionOptions
 			 * @returns {ConversionOptions} An instance of ConversionOptions
 			 */
-			getConversionoptions()	{
-				return this.conversionoptions;
+			getConversionOptions()	{
+				return this.conversionOptions;
 
 			}
 
 			/**
-			 * The method to set the value to conversionoptions
-			 * @param {ConversionOptions} conversionoptions An instance of ConversionOptions
+			 * The method to set the value to conversionOptions
+			 * @param {ConversionOptions} conversionOptions An instance of ConversionOptions
 			 */
-			setConversionoptions(conversionoptions)	{
-				if((conversionoptions != null) && (!(conversionoptions instanceof ZCRM.ConversionOption.Model.ConversionOptions))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: conversionoptions EXPECTED TYPE: ConversionOptions", null, null);
+			setConversionOptions(conversionOptions)	{
+				if((conversionOptions != null) && (!(conversionOptions instanceof ZCRM.ConversionOption.Model.ConversionOptions))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: conversionOptions EXPECTED TYPE: ConversionOptions", null, null);
 				}
-				this.conversionoptions = conversionoptions;
+				this.conversionOptions = conversionOptions;
 				this.keyModified.set("__conversion_options", 1);
 
 			}

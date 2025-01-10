@@ -581,6 +581,11 @@ ZCRM.Layout = {
 				this.delete1=null;
 				this.deactivate=null;
 				this.setLayoutPermissions=null;
+				this.addField=null;
+				this.changeTabTraversal=null;
+				this.reorder=null;
+				this.removeField=null;
+				this.changeColumnCount=null;
 				this.keyModified=new Map();
 			}
 
@@ -737,6 +742,116 @@ ZCRM.Layout = {
 				}
 				this.setLayoutPermissions = setLayoutPermissions;
 				this.keyModified.set("set_layout_permissions", 1);
+
+			}
+
+			/**
+			 * The method to get the addField
+			 * @returns {Boolean} A Boolean representing the addField
+			 */
+			getAddField()	{
+				return this.addField;
+
+			}
+
+			/**
+			 * The method to set the value to addField
+			 * @param {Boolean} addField A Boolean
+			 */
+			setAddField(addField)	{
+				if((addField != null) && (!(Object.prototype.toString.call(addField) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: addField EXPECTED TYPE: Boolean", null, null);
+				}
+				this.addField = addField;
+				this.keyModified.set("add_field", 1);
+
+			}
+
+			/**
+			 * The method to get the changeTabTraversal
+			 * @returns {Boolean} A Boolean representing the changeTabTraversal
+			 */
+			getChangeTabTraversal()	{
+				return this.changeTabTraversal;
+
+			}
+
+			/**
+			 * The method to set the value to changeTabTraversal
+			 * @param {Boolean} changeTabTraversal A Boolean
+			 */
+			setChangeTabTraversal(changeTabTraversal)	{
+				if((changeTabTraversal != null) && (!(Object.prototype.toString.call(changeTabTraversal) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: changeTabTraversal EXPECTED TYPE: Boolean", null, null);
+				}
+				this.changeTabTraversal = changeTabTraversal;
+				this.keyModified.set("change_tab_traversal", 1);
+
+			}
+
+			/**
+			 * The method to get the reorder
+			 * @returns {Boolean} A Boolean representing the reorder
+			 */
+			getReorder()	{
+				return this.reorder;
+
+			}
+
+			/**
+			 * The method to set the value to reorder
+			 * @param {Boolean} reorder A Boolean
+			 */
+			setReorder(reorder)	{
+				if((reorder != null) && (!(Object.prototype.toString.call(reorder) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: reorder EXPECTED TYPE: Boolean", null, null);
+				}
+				this.reorder = reorder;
+				this.keyModified.set("reorder", 1);
+
+			}
+
+			/**
+			 * The method to get the removeField
+			 * @returns {Boolean} A Boolean representing the removeField
+			 */
+			getRemoveField()	{
+				return this.removeField;
+
+			}
+
+			/**
+			 * The method to set the value to removeField
+			 * @param {Boolean} removeField A Boolean
+			 */
+			setRemoveField(removeField)	{
+				if((removeField != null) && (!(Object.prototype.toString.call(removeField) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: removeField EXPECTED TYPE: Boolean", null, null);
+				}
+				this.removeField = removeField;
+				this.keyModified.set("remove_field", 1);
+
+			}
+
+			/**
+			 * The method to get the changeColumnCount
+			 * @returns {Boolean} A Boolean representing the changeColumnCount
+			 */
+			getChangeColumnCount()	{
+				return this.changeColumnCount;
+
+			}
+
+			/**
+			 * The method to set the value to changeColumnCount
+			 * @param {Boolean} changeColumnCount A Boolean
+			 */
+			setChangeColumnCount(changeColumnCount)	{
+				if((changeColumnCount != null) && (!(Object.prototype.toString.call(changeColumnCount) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: changeColumnCount EXPECTED TYPE: Boolean", null, null);
+				}
+				this.changeColumnCount = changeColumnCount;
+				this.keyModified.set("change_column_count", 1);
 
 			}
 
@@ -2007,8 +2122,8 @@ ZCRM.Layout = {
 				this.default1=null;
 				this.name=null;
 				this.id=null;
-				this.defaultview=null;
-				this.defaultassignmentview=null;
+				this.defaultView=null;
+				this.defaultAssignmentView=null;
 				this.keyModified=new Map();
 			}
 
@@ -2081,45 +2196,45 @@ ZCRM.Layout = {
 			}
 
 			/**
-			 * The method to get the defaultview
+			 * The method to get the defaultView
 			 * @returns {DefaultView} An instance of DefaultView
 			 */
-			getDefaultview()	{
-				return this.defaultview;
+			getDefaultView()	{
+				return this.defaultView;
 
 			}
 
 			/**
-			 * The method to set the value to defaultview
-			 * @param {DefaultView} defaultview An instance of DefaultView
+			 * The method to set the value to defaultView
+			 * @param {DefaultView} defaultView An instance of DefaultView
 			 */
-			setDefaultview(defaultview)	{
-				if((defaultview != null) && (!(defaultview instanceof ZCRM.Layout.Model.DefaultView))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultview EXPECTED TYPE: DefaultView", null, null);
+			setDefaultView(defaultView)	{
+				if((defaultView != null) && (!(defaultView instanceof ZCRM.Layout.Model.DefaultView))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultView EXPECTED TYPE: DefaultView", null, null);
 				}
-				this.defaultview = defaultview;
+				this.defaultView = defaultView;
 				this.keyModified.set("_default_view", 1);
 
 			}
 
 			/**
-			 * The method to get the defaultassignmentview
+			 * The method to get the defaultAssignmentView
 			 * @returns {DefaultAssignmentView} An instance of DefaultAssignmentView
 			 */
-			getDefaultassignmentview()	{
-				return this.defaultassignmentview;
+			getDefaultAssignmentView()	{
+				return this.defaultAssignmentView;
 
 			}
 
 			/**
-			 * The method to set the value to defaultassignmentview
-			 * @param {DefaultAssignmentView} defaultassignmentview An instance of DefaultAssignmentView
+			 * The method to set the value to defaultAssignmentView
+			 * @param {DefaultAssignmentView} defaultAssignmentView An instance of DefaultAssignmentView
 			 */
-			setDefaultassignmentview(defaultassignmentview)	{
-				if((defaultassignmentview != null) && (!(defaultassignmentview instanceof ZCRM.Layout.Model.DefaultAssignmentView))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultassignmentview EXPECTED TYPE: DefaultAssignmentView", null, null);
+			setDefaultAssignmentView(defaultAssignmentView)	{
+				if((defaultAssignmentView != null) && (!(defaultAssignmentView instanceof ZCRM.Layout.Model.DefaultAssignmentView))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultAssignmentView EXPECTED TYPE: DefaultAssignmentView", null, null);
 				}
-				this.defaultassignmentview = defaultassignmentview;
+				this.defaultAssignmentView = defaultAssignmentView;
 				this.keyModified.set("_default_assignment_view", 1);
 
 			}
@@ -2359,6 +2474,7 @@ ZCRM.Layout = {
 
 				this.displayLabel=null;
 				this.sequenceNumber=null;
+				this.actionsAllowed=null;
 				this.issubformsection=null;
 				this.tabTraversal=null;
 				this.apiName=null;
@@ -2416,6 +2532,28 @@ ZCRM.Layout = {
 				}
 				this.sequenceNumber = sequenceNumber;
 				this.keyModified.set("sequence_number", 1);
+
+			}
+
+			/**
+			 * The method to get the actionsAllowed
+			 * @returns {ActionsAllowed} An instance of ActionsAllowed
+			 */
+			getActionsAllowed()	{
+				return this.actionsAllowed;
+
+			}
+
+			/**
+			 * The method to set the value to actionsAllowed
+			 * @param {ActionsAllowed} actionsAllowed An instance of ActionsAllowed
+			 */
+			setActionsAllowed(actionsAllowed)	{
+				if((actionsAllowed != null) && (!(actionsAllowed instanceof ZCRM.Layout.Model.ActionsAllowed))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: actionsAllowed EXPECTED TYPE: ActionsAllowed", null, null);
+				}
+				this.actionsAllowed = actionsAllowed;
+				this.keyModified.set("actions_allowed", 1);
 
 			}
 

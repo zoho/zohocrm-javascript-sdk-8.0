@@ -27,30 +27,30 @@ ZCRM.ZiaOrgEnrichment = {
 		BodyWrapper : class{
 			constructor(){
 
-				this.ziaorgenrichment=null;
+				this.ziaOrgEnrichment=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the ziaorgenrichment
-			 * @returns {List} An Array representing the ziaorgenrichment
+			 * The method to get the ziaOrgEnrichment
+			 * @returns {List} An Array representing the ziaOrgEnrichment
 			 */
-			getZiaorgenrichment()	{
-				return this.ziaorgenrichment;
+			getZiaOrgEnrichment()	{
+				return this.ziaOrgEnrichment;
 
 			}
 
 			/**
-			 * The method to set the value to ziaorgenrichment
-			 * @param {List} ziaorgenrichment An Array
+			 * The method to set the value to ziaOrgEnrichment
+			 * @param {List} ziaOrgEnrichment An Array
 			 */
-			setZiaorgenrichment(ziaorgenrichment)	{
-				if((ziaorgenrichment != null) && (!(Object.prototype.toString.call(ziaorgenrichment) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaorgenrichment EXPECTED TYPE: Array", null, null);
+			setZiaOrgEnrichment(ziaOrgEnrichment)	{
+				if((ziaOrgEnrichment != null) && (!(Object.prototype.toString.call(ziaOrgEnrichment) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaOrgEnrichment EXPECTED TYPE: Array", null, null);
 				}
-				this.ziaorgenrichment = ziaorgenrichment;
+				this.ziaOrgEnrichment = ziaOrgEnrichment;
 				this.keyModified.set("__zia_org_enrichment", 1);
 
 			}
@@ -467,30 +467,30 @@ ZCRM.ZiaOrgEnrichment = {
 		ActionWrapper : class{
 			constructor(){
 
-				this.ziaorgenrichment=null;
+				this.ziaOrgEnrichment=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the ziaorgenrichment
-			 * @returns {List} An Array representing the ziaorgenrichment
+			 * The method to get the ziaOrgEnrichment
+			 * @returns {List} An Array representing the ziaOrgEnrichment
 			 */
-			getZiaorgenrichment()	{
-				return this.ziaorgenrichment;
+			getZiaOrgEnrichment()	{
+				return this.ziaOrgEnrichment;
 
 			}
 
 			/**
-			 * The method to set the value to ziaorgenrichment
-			 * @param {List} ziaorgenrichment An Array
+			 * The method to set the value to ziaOrgEnrichment
+			 * @param {List} ziaOrgEnrichment An Array
 			 */
-			setZiaorgenrichment(ziaorgenrichment)	{
-				if((ziaorgenrichment != null) && (!(Object.prototype.toString.call(ziaorgenrichment) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaorgenrichment EXPECTED TYPE: Array", null, null);
+			setZiaOrgEnrichment(ziaOrgEnrichment)	{
+				if((ziaOrgEnrichment != null) && (!(Object.prototype.toString.call(ziaOrgEnrichment) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaOrgEnrichment EXPECTED TYPE: Array", null, null);
 				}
-				this.ziaorgenrichment = ziaorgenrichment;
+				this.ziaOrgEnrichment = ziaOrgEnrichment;
 				this.keyModified.set("__zia_org_enrichment", 1);
 
 			}
@@ -2009,7 +2009,7 @@ ZCRM.ZiaOrgEnrichment = {
 		ResponseWrapper : class{
 			constructor(){
 
-				this.ziaorgenrichment=null;
+				this.ziaOrgEnrichment=null;
 				this.info=null;
 				this.keyModified=new Map();
 			}
@@ -2017,23 +2017,23 @@ ZCRM.ZiaOrgEnrichment = {
 
 
 			/**
-			 * The method to get the ziaorgenrichment
-			 * @returns {List} An Array representing the ziaorgenrichment
+			 * The method to get the ziaOrgEnrichment
+			 * @returns {List} An Array representing the ziaOrgEnrichment
 			 */
-			getZiaorgenrichment()	{
-				return this.ziaorgenrichment;
+			getZiaOrgEnrichment()	{
+				return this.ziaOrgEnrichment;
 
 			}
 
 			/**
-			 * The method to set the value to ziaorgenrichment
-			 * @param {List} ziaorgenrichment An Array
+			 * The method to set the value to ziaOrgEnrichment
+			 * @param {List} ziaOrgEnrichment An Array
 			 */
-			setZiaorgenrichment(ziaorgenrichment)	{
-				if((ziaorgenrichment != null) && (!(Object.prototype.toString.call(ziaorgenrichment) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaorgenrichment EXPECTED TYPE: Array", null, null);
+			setZiaOrgEnrichment(ziaOrgEnrichment)	{
+				if((ziaOrgEnrichment != null) && (!(Object.prototype.toString.call(ziaOrgEnrichment) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaOrgEnrichment EXPECTED TYPE: Array", null, null);
 				}
-				this.ziaorgenrichment = ziaorgenrichment;
+				this.ziaOrgEnrichment = ziaOrgEnrichment;
 				this.keyModified.set("__zia_org_enrichment", 1);
 
 			}

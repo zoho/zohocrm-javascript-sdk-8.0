@@ -1332,7 +1332,7 @@ ZCRM.Profile = {
 		Profile : class{
 			constructor(){
 
-				this.defaultview=null;
+				this.defaultView=null;
 				this.name=null;
 				this.description=null;
 				this.id=null;
@@ -1355,23 +1355,23 @@ ZCRM.Profile = {
 
 
 			/**
-			 * The method to get the defaultview
+			 * The method to get the defaultView
 			 * @returns {DefaultView} An instance of DefaultView
 			 */
-			getDefaultview()	{
-				return this.defaultview;
+			getDefaultView()	{
+				return this.defaultView;
 
 			}
 
 			/**
-			 * The method to set the value to defaultview
-			 * @param {DefaultView} defaultview An instance of DefaultView
+			 * The method to set the value to defaultView
+			 * @param {DefaultView} defaultView An instance of DefaultView
 			 */
-			setDefaultview(defaultview)	{
-				if((defaultview != null) && (!(defaultview instanceof ZCRM.Profile.Model.DefaultView))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultview EXPECTED TYPE: DefaultView", null, null);
+			setDefaultView(defaultView)	{
+				if((defaultView != null) && (!(defaultView instanceof ZCRM.Profile.Model.DefaultView))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: defaultView EXPECTED TYPE: DefaultView", null, null);
 				}
-				this.defaultview = defaultview;
+				this.defaultView = defaultView;
 				this.keyModified.set("_default_view", 1);
 
 			}

@@ -27,30 +27,30 @@ ZCRM.ZiaPeopleEnrichment = {
 		BodyWrapper : class{
 			constructor(){
 
-				this.ziapeopleenrichment=null;
+				this.ziaPeopleEnrichment=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the ziapeopleenrichment
-			 * @returns {List} An Array representing the ziapeopleenrichment
+			 * The method to get the ziaPeopleEnrichment
+			 * @returns {List} An Array representing the ziaPeopleEnrichment
 			 */
-			getZiapeopleenrichment()	{
-				return this.ziapeopleenrichment;
+			getZiaPeopleEnrichment()	{
+				return this.ziaPeopleEnrichment;
 
 			}
 
 			/**
-			 * The method to set the value to ziapeopleenrichment
-			 * @param {List} ziapeopleenrichment An Array
+			 * The method to set the value to ziaPeopleEnrichment
+			 * @param {List} ziaPeopleEnrichment An Array
 			 */
-			setZiapeopleenrichment(ziapeopleenrichment)	{
-				if((ziapeopleenrichment != null) && (!(Object.prototype.toString.call(ziapeopleenrichment) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziapeopleenrichment EXPECTED TYPE: Array", null, null);
+			setZiaPeopleEnrichment(ziaPeopleEnrichment)	{
+				if((ziaPeopleEnrichment != null) && (!(Object.prototype.toString.call(ziaPeopleEnrichment) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaPeopleEnrichment EXPECTED TYPE: Array", null, null);
 				}
-				this.ziapeopleenrichment = ziapeopleenrichment;
+				this.ziaPeopleEnrichment = ziaPeopleEnrichment;
 				this.keyModified.set("__zia_people_enrichment", 1);
 
 			}
@@ -91,30 +91,30 @@ ZCRM.ZiaPeopleEnrichment = {
 		ActionWrapper : class{
 			constructor(){
 
-				this.ziapeopleenrichment=null;
+				this.ziaPeopleEnrichment=null;
 				this.keyModified=new Map();
 			}
 
 
 
 			/**
-			 * The method to get the ziapeopleenrichment
-			 * @returns {List} An Array representing the ziapeopleenrichment
+			 * The method to get the ziaPeopleEnrichment
+			 * @returns {List} An Array representing the ziaPeopleEnrichment
 			 */
-			getZiapeopleenrichment()	{
-				return this.ziapeopleenrichment;
+			getZiaPeopleEnrichment()	{
+				return this.ziaPeopleEnrichment;
 
 			}
 
 			/**
-			 * The method to set the value to ziapeopleenrichment
-			 * @param {List} ziapeopleenrichment An Array
+			 * The method to set the value to ziaPeopleEnrichment
+			 * @param {List} ziaPeopleEnrichment An Array
 			 */
-			setZiapeopleenrichment(ziapeopleenrichment)	{
-				if((ziapeopleenrichment != null) && (!(Object.prototype.toString.call(ziapeopleenrichment) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziapeopleenrichment EXPECTED TYPE: Array", null, null);
+			setZiaPeopleEnrichment(ziaPeopleEnrichment)	{
+				if((ziaPeopleEnrichment != null) && (!(Object.prototype.toString.call(ziaPeopleEnrichment) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaPeopleEnrichment EXPECTED TYPE: Array", null, null);
 				}
-				this.ziapeopleenrichment = ziapeopleenrichment;
+				this.ziaPeopleEnrichment = ziaPeopleEnrichment;
 				this.keyModified.set("__zia_people_enrichment", 1);
 
 			}
@@ -1017,7 +1017,7 @@ ZCRM.ZiaPeopleEnrichment = {
 		ResponseWrapper : class{
 			constructor(){
 
-				this.ziapeopleenrichment=null;
+				this.ziaPeopleEnrichment=null;
 				this.info=null;
 				this.keyModified=new Map();
 			}
@@ -1025,23 +1025,23 @@ ZCRM.ZiaPeopleEnrichment = {
 
 
 			/**
-			 * The method to get the ziapeopleenrichment
-			 * @returns {List} An Array representing the ziapeopleenrichment
+			 * The method to get the ziaPeopleEnrichment
+			 * @returns {List} An Array representing the ziaPeopleEnrichment
 			 */
-			getZiapeopleenrichment()	{
-				return this.ziapeopleenrichment;
+			getZiaPeopleEnrichment()	{
+				return this.ziaPeopleEnrichment;
 
 			}
 
 			/**
-			 * The method to set the value to ziapeopleenrichment
-			 * @param {List} ziapeopleenrichment An Array
+			 * The method to set the value to ziaPeopleEnrichment
+			 * @param {List} ziaPeopleEnrichment An Array
 			 */
-			setZiapeopleenrichment(ziapeopleenrichment)	{
-				if((ziapeopleenrichment != null) && (!(Object.prototype.toString.call(ziapeopleenrichment) == "[object Array]"))){
-					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziapeopleenrichment EXPECTED TYPE: Array", null, null);
+			setZiaPeopleEnrichment(ziaPeopleEnrichment)	{
+				if((ziaPeopleEnrichment != null) && (!(Object.prototype.toString.call(ziaPeopleEnrichment) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: ziaPeopleEnrichment EXPECTED TYPE: Array", null, null);
 				}
-				this.ziapeopleenrichment = ziapeopleenrichment;
+				this.ziaPeopleEnrichment = ziaPeopleEnrichment;
 				this.keyModified.set("__zia_people_enrichment", 1);
 
 			}

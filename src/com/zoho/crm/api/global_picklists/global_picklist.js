@@ -832,6 +832,7 @@ ZCRM.GlobalPicklist = {
 				this.id=null;
 				this.sequenceNumber=null;
 				this.displayValue=null;
+				this.referenceValue=null;
 				this.keyModified=new Map();
 			}
 
@@ -944,6 +945,28 @@ ZCRM.GlobalPicklist = {
 				}
 				this.displayValue = displayValue;
 				this.keyModified.set("display_value", 1);
+
+			}
+
+			/**
+			 * The method to get the referenceValue
+			 * @returns {String} A String representing the referenceValue
+			 */
+			getReferenceValue()	{
+				return this.referenceValue;
+
+			}
+
+			/**
+			 * The method to set the value to referenceValue
+			 * @param {String} referenceValue A String
+			 */
+			setReferenceValue(referenceValue)	{
+				if((referenceValue != null) && (!(Object.prototype.toString.call(referenceValue) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: referenceValue EXPECTED TYPE: String", null, null);
+				}
+				this.referenceValue = referenceValue;
+				this.keyModified.set("reference_value", 1);
 
 			}
 
@@ -1957,6 +1980,9 @@ ZCRM.GlobalPicklist = {
 				this.presence=null;
 				this.pickListValuesSortedLexically=null;
 				this.pickListValues=null;
+				this.associatedFieldsCount=null;
+				this.usedInModules=null;
+				this.customizable=null;
 				this.keyModified=new Map();
 			}
 
@@ -2223,6 +2249,72 @@ ZCRM.GlobalPicklist = {
 				}
 				this.pickListValues = pickListValues;
 				this.keyModified.set("pick_list_values", 1);
+
+			}
+
+			/**
+			 * The method to get the associatedFieldsCount
+			 * @returns {Integer} An Integer representing the associatedFieldsCount
+			 */
+			getAssociatedFieldsCount()	{
+				return this.associatedFieldsCount;
+
+			}
+
+			/**
+			 * The method to set the value to associatedFieldsCount
+			 * @param {Integer} associatedFieldsCount An Integer
+			 */
+			setAssociatedFieldsCount(associatedFieldsCount)	{
+				if((associatedFieldsCount != null) && (!(Object.prototype.toString.call(associatedFieldsCount) == "[object Number]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: associatedFieldsCount EXPECTED TYPE: Integer", null, null);
+				}
+				this.associatedFieldsCount = associatedFieldsCount;
+				this.keyModified.set("associated_fields_count", 1);
+
+			}
+
+			/**
+			 * The method to get the usedInModules
+			 * @returns {List} An Array representing the usedInModules
+			 */
+			getUsedInModules()	{
+				return this.usedInModules;
+
+			}
+
+			/**
+			 * The method to set the value to usedInModules
+			 * @param {List} usedInModules An Array
+			 */
+			setUsedInModules(usedInModules)	{
+				if((usedInModules != null) && (!(Object.prototype.toString.call(usedInModules) == "[object Array]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: usedInModules EXPECTED TYPE: Array", null, null);
+				}
+				this.usedInModules = usedInModules;
+				this.keyModified.set("used_in_modules", 1);
+
+			}
+
+			/**
+			 * The method to get the customizable
+			 * @returns {Boolean} A Boolean representing the customizable
+			 */
+			getCustomizable()	{
+				return this.customizable;
+
+			}
+
+			/**
+			 * The method to set the value to customizable
+			 * @param {Boolean} customizable A Boolean
+			 */
+			setCustomizable(customizable)	{
+				if((customizable != null) && (!(Object.prototype.toString.call(customizable) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: customizable EXPECTED TYPE: Boolean", null, null);
+				}
+				this.customizable = customizable;
+				this.keyModified.set("customizable", 1);
 
 			}
 
