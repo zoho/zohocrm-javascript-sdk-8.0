@@ -45,7 +45,7 @@ class GetCallPreference{
                         console.log(key + ": " + details.get(key));
                     });
                 }
-                console.log("Message: " + exception.getMessage() instanceof ZOHOCRMSDK.Choice ? exception.getMessage().getValue() : exception.getMessage());
+                console.log("Message: " + exception.getMessage() instanceof Choice ? exception.getMessage().getValue() : exception.getMessage());
             }
         }
     }
