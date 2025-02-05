@@ -687,7 +687,7 @@ class Utility {
             if (module1 !== null && module1.getAPIName().toLowerCase() !== Constants.SE_MODULE) {
                 module.setAPIName(module1.getAPIName());
                 module.setId(BigInt(module1.getId()));
-                fieldDetail.module = module.getAPIName();
+                fieldDetail.module = module1.getAPIName();
                 if (module1.getAPIName().toLowerCase() === Constants.ACCOUNTS.toLowerCase() && (field.getCustomField() != null && !field.getCustomField())) {
                     fieldDetail[Constants.SKIP_MANDATORY] = true;
                 }
@@ -719,11 +719,11 @@ async function fillDataType() {
     if (Utility.apiTypeVsDataType.size > 0 && Utility.apiTypeVsStructureName.size > 0) {
         return;
     }
-    let fieldAPINamesString = ["textarea", "text", "website", "email", "phone", "mediumtext", "multiselectlookup", "profileimage", "autonumber"];
+    let fieldAPINamesString = ["textarea", "text", "website", "email", "phone", "mediumtext", "profileimage", "autonumber"];
     let fieldAPINamesInteger = ["integer"];
     let fieldAPINamesBoolean = ["boolean"];
     let fieldAPINamesLong = ["long", "bigint"];
-    let fieldAPINamesDouble = ["double", "percent", "lookup", "currency"];
+    let fieldAPINamesDouble = ["double", "percent", "currency"];
     let fieldAPINamesFieldFile = ["fileupload"];
     let fieldAPINamesDateTime = ["datetime", "event_reminder"];
     let fieldAPINamesDate = ["date"];
@@ -786,7 +786,7 @@ async function fillDataType() {
     }
     for (let fieldAPIName of fieldAPINamesMultiUserLookUp) {
         Utility.apiTypeVsDataType.set(fieldAPIName, Constants.LIST_NAMESPACE);
-        Utility.apiTypeVsStructureName.set(fieldAPIName, Constants.USER_NAMESPACE);
+        Utility.apiTypeVsStructureName.set(fieldAPIName, Constants.RECORD_NAMESPACE);
     }
     for (let fieldAPIName of fieldAPINamesMultiModuleLookUp) {
         Utility.apiTypeVsDataType.set(fieldAPIName, Constants.LIST_NAMESPACE);

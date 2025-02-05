@@ -402,6 +402,7 @@ ZCRM.Module = {
 				this.id=null;
 				this.moduleName=null;
 				this.module=null;
+				this.crypt=null;
 				this.keyModified=new Map();
 			}
 
@@ -492,6 +493,28 @@ ZCRM.Module = {
 				}
 				this.module = module;
 				this.keyModified.set("module", 1);
+
+			}
+
+			/**
+			 * The method to get the crypt
+			 * @returns {Boolean} A Boolean representing the crypt
+			 */
+			getCrypt()	{
+				return this.crypt;
+
+			}
+
+			/**
+			 * The method to set the value to crypt
+			 * @param {Boolean} crypt A Boolean
+			 */
+			setCrypt(crypt)	{
+				if((crypt != null) && (!(Object.prototype.toString.call(crypt) == "[object Boolean]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: crypt EXPECTED TYPE: Boolean", null, null);
+				}
+				this.crypt = crypt;
+				this.keyModified.set("crypt", 1);
 
 			}
 
