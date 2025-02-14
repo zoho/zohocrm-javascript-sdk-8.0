@@ -121,6 +121,7 @@ ZCRM.BusinessHour = {
 				this.sameAsEveryday=null;
 				this.dailyTiming=null;
 				this.customTiming=null;
+				this.timezone=null;
 				this.keyModified=new Map();
 			}
 
@@ -277,6 +278,28 @@ ZCRM.BusinessHour = {
 				}
 				this.customTiming = customTiming;
 				this.keyModified.set("custom_timing", 1);
+
+			}
+
+			/**
+			 * The method to get the timezone
+			 * @returns {String} A String representing the timezone
+			 */
+			getTimezone()	{
+				return this.timezone;
+
+			}
+
+			/**
+			 * The method to set the value to timezone
+			 * @param {String} timezone A String
+			 */
+			setTimezone(timezone)	{
+				if((timezone != null) && (!(Object.prototype.toString.call(timezone) == "[object String]"))){
+					throw new SDKException(Constants.DATA_TYPE_ERROR, "KEY: timezone EXPECTED TYPE: String", null, null);
+				}
+				this.timezone = timezone;
+				this.keyModified.set("timezone", 1);
 
 			}
 
