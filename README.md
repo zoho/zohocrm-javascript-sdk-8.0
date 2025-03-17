@@ -25,6 +25,11 @@ License
 
 ## Latest Version
 
+- [2.0.0](/versions/2.0.0/README.md)
+
+    - New fields have been added to the History Tracking Fields API. 
+    - Fixed the issue with the inventory mass conversion status API.
+
 - [1.0.0](/versions/1.0.0/README.md)
 
     - JavaScript SDK upgraded to support v8 APIs.
@@ -44,7 +49,7 @@ For older versions, please [refer](https://github.com/zoho/zohocrm-javascript-sd
 
 ### CDN URL
 
-- https://static.zohocdn.com/zohocrm/v8.0/sdk/1.0.0/zohocrmsdk-8-0.js
+- https://static.zohocdn.com/zohocrm/v8.0/sdk/2.0.0/zohocrmsdk-8-0.js
 
 **NOTE** 
 
@@ -59,4 +64,4 @@ For example, if you generate the tokens for your Sandbox environment in the CN d
 
 ---
 
-For more details, kindly refer [here](/versions/1.0.0/README.md).
+For more details, kindly refer [here](/versions/2.0.0/README.md).
