@@ -1,0 +1,99 @@
+class UpdateSharingRules{
+	static async call() {
+		let environment = DataCenter.US.PRODUCTION();
+		let token = new OAuthBuilder()
+			.clientId("1000.xxxx")
+			.scope("ZohoCRM.users.ALL,ZohoCRM.bulk.read,ZohoCRM.bulk.ALL,ZohoCRM.settings.currencies.READ,ZohoCRM.settings.currencies.CREATE,ZohoCRM.settings.currencies.UPDATE,ZohoCRM.share.Leads.ALL,Aaaserver.profile.Read,ZohoCRM.modules.ALL,ZohoCRM.settings.ALL,ZohoCRM.org.ALL,profile.userphoto.READ,ZohoFiles.files.ALL,ZohoCRM.files.READ,ZohoCRM.files.CREATE,ZohoCRM.mass_update.Leads.UPDATE,ZohoCRM.mass_update.Leads.READ,ZohoCRM.settings.currencies.read,ZohoCRM.settings.currencies.create,ZohoCRM.settings.currencies.update,ZohoCRM.coql.READ,ZohoCRM.notifications.ALL,ZohoCRM.templates.email.READ,ZohoCRM.templates.inventory.READ,ZohoCRM.settings.pipeline.ALL,ZohoCRM.send_mail.all.CREATE,ZohoCRM.settings.wizards.READ,ZohoCRM.settings.pipeline.READ,ZohoSearch.securesearch.READ,ZohoCRM.settings.pipeline.ALL,ZohoCRM.functions.execute.READ,ZohoCRM.functions.execute.CREATE,ZohoCRM.users.ALL,ZohoCRM.bulk.read,ZohoCRM.bulk.ALL,ZohoCRM.settings.currencies.READ,ZohoCRM.settings.currencies.CREATE,ZohoCRM.settings.currencies.UPDATE,ZohoCRM.share.Leads.ALL,Aaaserver.profile.Read,ZohoCRM.modules.ALL,ZohoCRM.settings.ALL,ZohoCRM.org.ALL,profile.userphoto.READ,ZohoFiles.files.ALL,ZohoCRM.files.READ,ZohoCRM.files.CREATE,ZohoCRM.mass_update.Leads.UPDATE,ZohoCRM.mass_update.Leads.READ,ZohoCRM.settings.currencies.read,ZohoCRM.settings.currencies.create,ZohoCRM.settings.currencies.update,ZohoCRM.coql.READ,ZohoCRM.notifications.ALL,ZohoCRM.templates.email.READ,ZohoCRM.templates.inventory.READ,ZohoCRM.settings.pipeline.ALL,ZohoCRM.send_mail.all.CREATE,ZohoCRM.settings.wizards.READ,ZohoCRM.settings.pipeline.READ,ZohoSearch.securesearch.READ,ZohoCRM.settings.pipeline.ALL,ZohoCRM.functions.execute.READ,ZohoCRM.functions.execute.CREATE,ZohoCRM.modules.Leads.READ,ZohoCRM.settings.scoring_rules.ALL,ZohoCRM.settings.users_unavailability.ALL,ZohoCRM.change_owner.CREATE,ZohoCRM.modules.entity_scores.READ,ZohoCRM.settings.map_dependency.READ,ZohoCRM.settings.map_dependency.CREATE,ZohoCRM.settings.map_dependency.UPDATE,ZohoCRM.settings.map_dependency.DELETE,ZohoCRM.change_owner.READ,ZohoCRM.mass_convert.leads.CREATE,ZohoCRM.mass_convert.leads.READ,ZohoCRM.mass_delete.Leads.READ,ZohoCRM.mass_delete.Leads.DELETE,ZohoCRM.settings.clientportal.ALL,ZohoCRM.bulk.backup.ALL,ZohoCRM.settings.fiscal_year.UPDATE,ZohoCRM.settings.fiscal_year.READ,ZohoCRM.modules.appointments_rescheduled_history.ALL,ZohoFiles.files.ALL,ZohoCRM.bulk.backup.ALL,ZohoCRM.digest.CREATE,ZohoCRM.features.READ,ZohoCRM.settings.webforms.ALL,ZohoCRM.settings.global_picklist.ALL,ZohoCRM.settings.unsubscribe.ALL,ZohoCRM.apis.READ,ZohoCRM.settings.audit_logs.CREATE,ZohoCRM.settings.audit_logs.READ,ZohoCRM.settings.duplicate_check_preference.ALL,ZohoCRM.settings.cadences.ALL,ZohoCRM.mass_convert.Quotes.READ,ZohoCRM.mass_convert.SalesOrders.READ,ZohoCRM.mass_convert.SalesOrders.CREATE,ZohoCRM.mass_convert.Quotes.CREATE,ZohoCRM.settings.recycle_bin.DELETE,ZohoCRM.settings.recycle_bin.READ,ZohoCRM.Zia.enrichment.ALL,ZohoCRM.settings.data_sharing.ALL,ZohoCRM.signals.ALL")
+			.redirectURL("http://127.0.0.1:5500/redirect.html")
+			.build();
+		(await new InitializeBuilder())
+			.environment(environment)
+			.token(token)
+			.initialize();
+		await UpdateSharingRules.updateSharingRules("Leads");
+    }
+    static async updateSharingRules(moduleAPIName) {
+        const sharingRulesOperations = new ZCRM.SharingRule.Operations(moduleAPIName);
+        const request = new ZCRM.SharingRule.Model.BodyWrapper();
+        const sharingRules = [];
+        const sharingRule = new ZCRM.SharingRule.Model.SharingRules();
+        sharingRule.setType(new Choice("Record_Owner_Based"));
+        const sharedFrom = new ZCRM.SharingRule.Model.Shared();
+        let resource = new ZCRM.SharingRule.Model.Resource();
+        resource.setId(BigInt("3477236002"));
+        await sharedFrom.setResource(resource);
+        sharedFrom.setType(new Choice("groups"));
+        sharedFrom.setSubordinates(false);
+        await sharingRule.setSharedFrom(sharedFrom);
+        // Uncomment and modify if using criteria-based sharing
+        // const criteria = new ZCRM.SharingRule.Model.Criteria();
+        // criteria.setComparator("equal");
+        // const field = new ZCRM.SharingRule.Model.Field();
+        // field.setAPIName("Wizard");
+        // field.setId(BigInt("1111195003"));
+        // criteria.setField(field);
+        // const value = new JSONObject();
+        // value.put("name", "TestWizards");
+        // value.put("id", "111111095001");
+        // criteria.setValue(value);
+        // sharingRule.setCriteria(criteria);
+
+        sharingRule.setSuperiorsAllowed(false);
+
+        // Set Shared To
+        const sharedTo = new ZCRM.SharingRule.Model.Shared();
+        resource = new ZCRM.SharingRule.Model.Resource();
+        resource.setId(BigInt("34717236002"));
+        await sharedTo.setResource(resource);
+        sharedTo.setType(new Choice("groups"));
+        sharedTo.setSubordinates(false);
+        await sharingRule.setSharedTo(sharedTo);
+
+        sharingRule.setPermissionType(new Choice("read_write_delete"));
+        sharingRule.setId(BigInt("3477551001"));
+
+        sharingRules.push(sharingRule);
+        request.setSharingRules(sharingRules);
+
+        const response = await sharingRulesOperations.updateSharingRules(request);
+
+        if (response != null) {
+            console.log("Status Code:", response.getStatusCode());
+
+            const actionHandler = response.getObject();
+
+            if (actionHandler instanceof ZCRM.SharingRule.Model.ActionWrapper) {
+                const actionWrapper = actionHandler;
+                const actionResponses = actionWrapper.getSharingRules();
+
+                actionResponses.forEach(actionResponse => {
+                    if (actionResponse instanceof ZCRM.SharingRule.Model.SuccessResponse) {
+                        console.log("Status:", actionResponse.getStatus().getValue());
+                        console.log("Code:", actionResponse.getCode().getValue());
+                        console.log("Details:");
+                        Object.entries(actionResponse.getDetails()).forEach(([key, value]) => {
+                            console.log(`${key}: ${value}`);
+                        });
+                        console.log("Message:", actionResponse.getMessage().getValue());
+                    } else if (actionResponse instanceof ZCRM.SharingRule.Model.APIException) {
+                        console.log("Status:", actionResponse.getStatus().getValue());
+                        console.log("Code:", actionResponse.getCode().getValue());
+                        console.log("Details:");
+                        Object.entries(actionResponse.getDetails()).forEach(([key, value]) => {
+                            console.log(`${key}: ${value}`);
+                        });
+                        console.log("Message:", actionResponse.getMessage().getValue());
+                    }
+                });
+            } else if (actionHandler instanceof ZCRM.SharingRule.Model.APIException) {
+                console.log("Status:", actionHandler.getStatus().getValue());
+                console.log("Code:", actionHandler.getCode().getValue());
+                console.log("Details:");
+                Object.entries(actionHandler.getDetails()).forEach(([key, value]) => {
+                    console.log(`${key}: ${value}`);
+                });
+                console.log("Message:", actionHandler.getMessage());
+            }
+        }
+    }
+}
