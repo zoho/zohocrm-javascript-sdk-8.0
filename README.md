@@ -25,6 +25,10 @@ License
 
 ## Latest Version
 
+- [3.0.0](/versions/3.0.0/README.md)
+
+    - Fixed issue with TokenStore file handling.
+
 - [2.0.0](/versions/2.0.0/README.md)
 
     - New fields have been added to the History Tracking Fields API. 
@@ -49,7 +53,7 @@ For older versions, please [refer](https://github.com/zoho/zohocrm-javascript-sd
 
 ### CDN URL
 
-- https://static.zohocdn.com/zohocrm/v8.0/sdk/2.0.0/zohocrmsdk-8-0.js
+- https://static.zohocdn.com/zohocrm/v8.0/sdk/3.0.0/zohocrmsdk-8-0.js
 
 **NOTE** 
 
@@ -64,4 +68,4 @@ For example, if you generate the tokens for your Sandbox environment in the CN d
 
 ---
 
-For more details, kindly refer [here](/versions/2.0.0/README.md).
+For more details, kindly refer [here](/versions/3.0.0/README.md).
